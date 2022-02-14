@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    environment {
+        registry = 'docker.io/pradeep281998/docfile'
+        registryCredential = 'docker-hub-id'
+        
+        dockerImage = ''
+    }
+    
+     stages {
+        stage("Git Checkout") {
+            steps {
+                git CredentialsId: 'github', url:"https://github.com/pradeep281998/node_js.git"
+            }
+        }
+        
+        stage('Dockerfile true'){
+            steps{
+                
+        echo 'docker file is there'
+                
+            }
+            
+        }
+       
+
+
+      stage('Building our image') {
+            steps {
+                script {
+                    sh 'docker info'
+                    dockerImage = docker.build registry + ":v$BUILD_NUMBER"
+                }
+            }
+        }
+    }
+    
