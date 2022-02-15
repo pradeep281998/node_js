@@ -14,4 +14,4 @@ COPY --chown=node:node . .
 
 EXPOSE 8080
 
-CMD [ "node", "src/index.js" ]
+CMD [ "node", "toyoza_src/index.js" ]
