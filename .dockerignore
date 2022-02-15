@@ -1,0 +1,4 @@
+npm-module
+npm-debug.log
+.dockerignore
+Dockerfile
